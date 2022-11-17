@@ -19,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/profile" exact element={<Profile />} />
         <Route path="/missions" exact element={<Missions />} />
+        <Route path="/Rockets" element={<Rockets />} />
       </Routes>
     </>
 
