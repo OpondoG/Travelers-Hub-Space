@@ -6,6 +6,7 @@ import { getMissions } from './redux/Missions/missionsReducer';
 import Navbar from './Components/navbar/Navbar';
 import Missions from './Components/missions/Missions';
 import Profile from './Components/profile/Profile';
+import Rockets from './components/Rockets/Rockets';
 
 function App() {
   const dispatch = useDispatch();
