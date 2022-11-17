@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import React, { useEffect } from 'react';
@@ -6,7 +7,7 @@ import { getMissions } from './redux/Missions/missionsReducer';
 import Navbar from './Components/navbar/Navbar';
 import Missions from './Components/missions/Missions';
 import Profile from './Components/profile/Profile';
-import Rockets from './components/Rockets/Rockets';
+import Rockets from './components/Rockets/Rockets.js';
 
 function App() {
   const dispatch = useDispatch();
