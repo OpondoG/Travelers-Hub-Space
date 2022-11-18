@@ -12,7 +12,7 @@ function Navbar() {
         <span>Space Travelers Hub</span>
       </div>
       <ul>
-        {/* <li>
+        <li>
           <NavLink
             className={({ isActive }) => (isActive ? style.active : style.passive)}
             to="/"
@@ -20,7 +20,7 @@ function Navbar() {
           >
             Rockets
           </NavLink>
-        </li> */}
+        </li>
         <li>
           <NavLink
             className={({ isActive }) => (isActive ? style.active : style.passive)}
