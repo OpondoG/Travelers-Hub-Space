@@ -1,33 +1,40 @@
-/* eslint-disable import/extensions */
-import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAPI } from './redux/Rockets';
+import { toggleReservation } from '../../redux/Rockets/rocketReducer';
+import style from './rockets.module.css';
 
-const Mission = () => {
-  const store = useSelector((state) => state.rocketReducer);
+function Rockets() {
+  const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
-  useEffect(() => {
-    fetch('https://api.spacexdata.com/v3/rockets')
-      .then((res) => res.json())
-      .then((json) => {
-        if (store.length === 0) {
-          dispatch(getAPI(json));
-        }
-      });
-  }, []);
   return (
-    <ul className="rocket-container">
-      {store.map((rocket) => (
-        <li key={rocket.id}>
-          <ul>
-            <li>{rocket.rocket_name}</li>
-            <li>
-              <img src={rocket.flickr_images[0]} alt="" />
-            </li>
-          </ul>
-        </li>
+    <div className={style.container} data-testid="list-of-rockets">
+
+      {rockets.map((el) => (
+        <div key={el.id} className={style.item}>
+          <img src={el.flickr_images} alt="Rocket" />
+          <div className={style.info}>
+            <h1>{el.rocket_name}</h1>
+            <p>
+              <button
+                type="submit"
+                className={el.reserved ? style.reserved : style.hide}
+              >
+                Reserved
+              </button>
+              {el.description}
+            </p>
+            <button
+              type="submit"
+              onClick={() => dispatch(toggleReservation(el.id))}
+              className={el.reserved ? style.cancel : style.myButton}
+            >
+              {el.reserved ? 'Cancel Reservation' : 'Reserve Rocket' }
+            </button>
+          </div>
+        </div>
       ))}
-    </ul>
+
+    </div>
   );
-};
-export default Mission;
+}
+
+export default Rockets;
