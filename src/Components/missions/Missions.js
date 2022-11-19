@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleJoining } from '../../redux/Missions/missionsReducer';
+import { getMissions, toggleJoining } from '../../redux/Missions/missionsReducer';
 import style from './missions.module.css';
 
 function Missions() {
   const missions = useSelector((state) => state.missions);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (missions.length === 0) {
+      dispatch(getMissions());
+    }
+  });
+
   return (
     <>
       <table className={style.table} data-testid="list-of-missions">
@@ -24,7 +31,7 @@ function Missions() {
             <td>
               <button type="submit" className={el.joined ? style.inactiveMember : style.activeMember}>
                 {
-                el.joined ? 'A MEMBER' : 'Active Member'
+                el.joined ? 'Active Member' : 'NOT A MEMBER'
               }
               </button>
             </td>

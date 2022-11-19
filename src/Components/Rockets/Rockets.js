@@ -1,10 +1,18 @@
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleReservation } from '../../redux/Rockets/rocketReducer';
+import { toggleReservation, getRockets } from '../../redux/Rockets/rocketReducer';
 import style from './rockets.module.css';
 
 function Rockets() {
   const rockets = useSelector((state) => state.rockets);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (rockets.length === 0) {
+      dispatch(getRockets());
+    }
+  });
+
   return (
     <div className={style.container} data-testid="list-of-rockets">
 
