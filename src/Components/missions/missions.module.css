@@ -26,6 +26,10 @@ td {
   text-align: center;
 }
 
+tr:nth-child(even) {
+  background-color: #8d2e2e;
+}
+
 .item {
   border: 1px solid #000;
 }

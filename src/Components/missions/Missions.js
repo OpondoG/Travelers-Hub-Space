@@ -24,7 +24,7 @@ function Missions() {
             <td>
               <button type="submit" className={el.joined ? style.inactiveMember : style.activeMember}>
                 {
-                el.joined ? 'NOT A MEMBER' : 'Active Member'
+                el.joined ? 'A MEMBER' : 'Active Member'
               }
               </button>
             </td>
