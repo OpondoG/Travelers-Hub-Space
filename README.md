@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[Space Traveler' Hub](https://spacetravelerg.netlify.app/) :smile:
+[Space Traveler' Hub]() :smile:
 
 
 ## Getting Started
